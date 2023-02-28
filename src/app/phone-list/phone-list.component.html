@@ -1,1 +1,5 @@
-<p>phone-list works!</p>
+<article *ngFor="let phone of PhoneDetailes"> 
+    <img src="{{'assets/' + phone.imageUrl}}" alt="{{phone.id}}">
+    <p>{{phone.name}}</p>
+    <p>{{phone.snippet}}</p>
+</article>
