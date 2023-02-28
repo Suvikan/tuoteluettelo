@@ -12,4 +12,16 @@ export class PhoneService {
   GetPhoneDetails() {
     return this.http.get('../assets/phones/phones.json');
   }
+
+  getAllProducts(): any {
+
+    const products = this.http.get('assets/phones/phones.json');
+
+    return products;
+  }
+
+  getProduct(id: string):any {
+    const product = this.http.get('assets/phones/'+id+'.json');
+    return product;
+  }
 }

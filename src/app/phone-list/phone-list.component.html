@@ -1,5 +1,30 @@
-<article *ngFor="let phone of PhoneDetailes"> 
-    <img src="{{'assets/' + phone.imageUrl}}" alt="{{phone.id}}">
-    <p>{{phone.name}}</p>
-    <p>{{phone.snippet}}</p>
-</article>
+<main id="container">
+    
+  <aside id="search-nav">
+    <label for="searchbar">Search:</label><br />
+    <input type="search" id="searchbar" name="searchbar"/>
+    <br><br>
+    <section class="sort">
+        <label class="label">Sort by:</label><br>
+        <select class="select">
+          <option value="age">Newest</option>
+          <option value="name">Alphabetical</option>
+        </select>
+      </section>
+  </aside>
+
+  <section id="phonecard">
+    <article id="phoneblocks" *ngFor="let phone of PhoneList">
+      <figure class="phoneimg">
+        <img
+          src="{{ 'assets/' + phone.imageUrl }}"
+          alt="{{ phone.id }}"
+        /> </figure>
+      <div class="phoneinfo">
+        <h3>{{ phone.name }}</h3>
+        <p><a routerLink="{{ '/item-detail/' + phone.id }}">{{ phone.name }}</a></p>
+        <p>{{ phone.snippet }}</p>
+      </div>
+    </article>
+  </section>
+</main>

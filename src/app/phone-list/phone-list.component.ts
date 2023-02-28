@@ -7,14 +7,19 @@ import { PhoneService } from '../phone.service';
   templateUrl: './phone-list.component.html',
   styleUrls: ['./phone-list.component.css']
 })
-export class PhoneListComponent {
-  PhoneDetailes: any = [];
+export class PhoneListComponent implements OnInit {
+  PhoneList: any = [];
+
 
   constructor(private service: PhoneService) {}
 
-  ngOnInit() { 
+  ngOnInit(): void {
+    this.getProducts();
+  }
+  
+  getProducts(): void { 
     this.service.GetPhoneDetails().subscribe(data=>{
-      this.PhoneDetailes = data;
+      this.PhoneList = data;
     })
   }
 
