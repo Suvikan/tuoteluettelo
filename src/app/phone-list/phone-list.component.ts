@@ -8,7 +8,7 @@ import { PhoneService } from '../phone.service';
   styleUrls: ['./phone-list.component.css'],
 })
 export class PhoneListComponent implements OnInit {
-  PhoneList: any = [];
+  phoneList: any = [];
   filterTerm!: string;
   selectedSort: string = '';
   order: string ='';
@@ -21,35 +21,38 @@ export class PhoneListComponent implements OnInit {
 
   getProducts(): void {
     this.service.getPhoneDetails().subscribe((data) => {
-      this.PhoneList = data;
+      this.phoneList = data;
     });
   }
 
   sortByNewest() {
-    this.PhoneList.sort((a: any, b: any) => b.age - a.age);
+    this.phoneList.sort((a: any, b: any) => b.age - a.age);
   }
   sortByOldest() {
-    this.PhoneList.sort((a: any, b: any) => a.age - b.age);
+    this.phoneList.sort((a: any, b: any) => a.age - b.age);
   }
-  sortByAlphabet() {
-    this.PhoneList.sort((a:any, b:any) => a.name.localeCompare(b.name));
+  sortByAlphabetA() {
+    this.phoneList.sort((a:any, b:any) => a.name.localeCompare(b.name));
+  }
+  sortByAlphabetZ() {
+    this.phoneList.sort((a:any, b:any) => b.name.localeCompare(a.name));
   }
 
   sort(event: any){
-    console.log(event);
     let option = event.target.value;
     if (option === "oldest") {
       this.sortByOldest();
-      console.log("old")
     } 
-    else if (option === "alphabetical") {
-      this.sortByAlphabet();
-      console.log("alph")
-    }
     else if (option == "newest") {
       this.sortByNewest();
-      console.log("new")
     }
+    else if (option === "alpha-a") {
+      this.sortByAlphabetA();
+    }
+    else if (option === "alpha-z") {
+      this.sortByAlphabetZ();
+    }
+    
   }
 
   

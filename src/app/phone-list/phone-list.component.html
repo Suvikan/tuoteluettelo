@@ -10,13 +10,14 @@
         <select id="selectid" (change)="sort($event)">
           <option value="oldest">Oldest first</option>
           <option value="newest">Newest first</option>
-          <option value="alphabetical">Alphabetical A-Z</option>
+          <option value="alpha-a">Alphabetical A-Z</option>
+          <option value="alpha-z">Alphabetical Z-A</option>
         </select>
       </section>
   </aside>
 
   <section id="phonecard">
-    <article id="phoneblocks" *ngFor="let phone of PhoneList | filter: filterTerm">
+    <article id="phoneblocks" *ngFor="let phone of phoneList | filter: filterTerm">
       <figure class="phoneimg">
         <img
           src="{{ 'assets/' + phone.imageUrl }}"

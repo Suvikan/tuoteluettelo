@@ -32,11 +32,11 @@
 }
 
 .phone-item-info-small-img {
-  border: solid 0.5px;
   max-width: 80px;
   flex-basis: 0px;
   flex-grow: 1;
   order: 2;
+  cursor: pointer;
 }
 
 img {
