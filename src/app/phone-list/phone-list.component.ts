@@ -18,7 +18,7 @@ export class PhoneListComponent implements OnInit {
   }
   
   getProducts(): void { 
-    this.service.GetPhoneDetails().subscribe(data=>{
+    this.service.getPhoneDetails().subscribe(data=>{
       this.PhoneList = data;
     })
   }
