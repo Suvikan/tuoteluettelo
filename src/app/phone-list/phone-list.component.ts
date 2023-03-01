@@ -9,7 +9,7 @@ import { PhoneService } from '../phone.service';
 })
 export class PhoneListComponent implements OnInit {
   PhoneList: any = [];
-
+  filterTerm!: string;
 
   constructor(private service: PhoneService) {}
 

@@ -3,7 +3,7 @@
   <aside id="search-nav">
     <h1>Phones</h1>
     <label for="searchbar">Search:</label><br />
-    <input type="search" id="searchbar" name="searchbar"/>
+    <input type="search" id="searchbar" name="searchbar" [(ngModel)]="filterTerm"/>
     <br><br>
     <section class="sort">
         <label class="label">Sort by:</label><br>
@@ -16,7 +16,7 @@
   </aside>
 
   <section id="phonecard">
-    <article id="phoneblocks" *ngFor="let phone of PhoneList">
+    <article id="phoneblocks" *ngFor="let phone of PhoneList | filter: filterTerm">
       <figure class="phoneimg">
         <img
           src="{{ 'assets/' + phone.imageUrl }}"
